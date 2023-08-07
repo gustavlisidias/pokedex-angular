@@ -1,0 +1,27 @@
+:root {
+    --branco: #fff;
+    --cinza: #efefef;
+    --primary-color: #262835;
+    --secondary-color: #ff5473;
+}
+
+:host form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9375rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.625rem;
+}
+
+:host form input {
+    width: 95%;
+    background: none;
+    border: none;
+    font-size: 1.125rem;
+    color: var(--branco);
+}
+
+:host form input::placeholder {
+    color: var(--branco);
+}

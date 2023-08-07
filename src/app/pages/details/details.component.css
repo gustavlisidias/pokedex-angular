@@ -1,0 +1,119 @@
+:root {
+    --branco: #fff;
+    --cinza: #efefef;
+    --primary-color: #262835;
+    --secondary-color: #ff5473;
+}
+
+:host main {
+    margin-top: 2.5rem;
+}
+
+:host main .pokemon-names {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 75px;
+    padding: 0 1.875rem;
+}
+
+:host main .pokemon-names h1 {
+    color: var(--branco);
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+:host main .pokemon-names h2 {
+    position: absolute;
+    font-weight: 100;
+    top: 0;
+    font-size: 3.75rem;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+:host main .pokemon-names h1,
+:host main .pokemon-names h2 {
+    -webkit-animation-fill-mode: none !important;
+    animation-fill-mode: none !important;
+}
+
+:host main .pokemon-status {
+    position: relative;
+}
+
+:host main .pokemon-status img {
+    position: absolute;
+    top: -5.625rem;
+    left: 1.875rem;
+    max-width: 8.125rem;
+    z-index: 10;
+    -webkit-animation-fill-mode: none !important;
+    animation-fill-mode: none !important;
+}
+
+:host main .pokemon-status-statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--branco);
+    min-height: 43.9vh;
+    margin-top: 0.625rem;
+    padding: 6.875rem 2.1875rem 1.875rem;
+    border-radius: 3.125rem 3.125rem 0 0;
+}
+
+:host main .pokemon-status-statistics section {
+    margin-bottom: 1.25rem;
+}
+
+:host main .pokemon-status-statistics h3 {
+    margin-bottom: rem-calc 20;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+:host main .pokemon-status-statistics ol li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.125rem;
+    line-height: 130%;
+}
+
+:host main .pokemon-loading {
+    color: #fff;
+}
+
+@media (max-width: 420px) {
+    :host main {
+        margin-top: 0.625rem;
+    }
+
+    :host main .pokemon-names h1 {
+        font-size: 1.25rem;
+    }
+
+    :host main .pokemon-names h2 {
+        top: 2.1875rem;
+        font-size: 1.25rem;
+    }
+
+    :host main .pokemon-status {
+        position: relative;
+    }
+
+    :host main .pokemon-status img {
+        position: absolute;
+        top: -5rem;
+        left: 0rem;
+        max-width: 6.25rem;
+    }
+
+    :host main .pokemon-status-statistics {
+        min-height: 57vh;
+        padding-top: 3.125rem;
+    }
+}

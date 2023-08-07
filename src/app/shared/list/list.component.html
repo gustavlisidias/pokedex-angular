@@ -1,0 +1,39 @@
+<app-search (emmitSearch)="searchPokemons($event)"></app-search>
+
+<section class="listagem" *ngIf="allPokemons.length === 0">
+    <p class="pokemon-loading">Carregando...</p>
+</section>
+
+<section class="listagem" *ngIf="allPokemons.length > 0">
+    <ng-template ngFor let-pokemon [ngForOf]="currentPokemons">
+        <a [routerLink]="['details', pokemon.details.id]" class="pokemon" *ngIf="pokemon.details.id">
+            <section class="pokemon-status">
+                <h2>
+                    {{ pokemon.name }}
+                </h2>
+                <ul>
+                    <li *ngFor="let value of pokemon.details.types">
+                        {{value.type.name}}
+                    </li>
+                </ul>
+            </section>
+            <section class="pokemon-image">
+                <img [src]="pokemon.details.sprites.other.dream_world.front_default" *ngIf="pokemon.details?.sprites?.other?.dream_world?.front_default" [alt]="pokemon.name">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.details.id}}.png" *ngIf="!pokemon.details?.sprites?.other?.dream_world?.front_default" [alt]="pokemon.name">
+            </section>
+        </a>
+    </ng-template>
+</section>
+
+<section class="listagem" *ngIf="allPokemons.length > 0">
+    <div class="pokemon-buttons">
+        <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)" title="Voltar" alt="Voltar">
+            <i class="fa-solid fa-angles-left"></i>
+        </button>
+        <button [disabled]="currentPage === totalPages" (click)="goToPage(currentPage + 1)" title="Próximo" alt="Próximo">
+            <i class="fa-solid fa-angles-right"></i>
+        </button>
+    </div>
+</section>
+
+<img src="assets/error.png" alt="Deu erro na mostragem do pokemon" width="100%" *ngIf="apiError">

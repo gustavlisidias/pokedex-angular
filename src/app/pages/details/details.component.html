@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<main>
+    <ng-template [ngIf]="!pokemonDetails">
+        <section>
+            <p class="pokemon-loading">Carregando...</p>
+        </section>
+    </ng-template>
+    
+    <ng-template [ngIf]="pokemonDetails">
+
+        <section class="pokemon-names">
+            <h1 class="slideInLeft">{{pokemonDetails.name}}</h1>
+            <h2 class="slideInRight">{{pokemonName?.names[0]?.name}}</h2>
+        </section>
+
+        <section class="pokemon-status">
+            <img [src]="pokemonDetails.sprites.other.dream_world.front_default" [alt]="pokemonDetails.name" class="slideInDown">
+
+            <article class="pokemon-status-statistics fadeIn">
+                <section>
+                    <h3>Habilidades</h3>
+                    <ol>
+                        <li *ngFor="let value of pokemonDetails.abilities">
+                            {{ value.ability.name }}
+                        </li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>Estatísticas</h3>
+                    <ol>
+                        <li *ngFor="let value of pokemonDetails.stats">
+                            {{ value.stat.name }} <strong>{{ value.base_stat }}</strong>
+                        </li>
+                    </ol>
+                </section>
+                
+                <section>
+                    <h3>Tipos</h3>
+                    <ol>
+                        <li *ngFor="let value of pokemonDetails.types">
+                            {{ value.type.name }}
+                        </li>
+                    </ol>
+                </section>
+
+                <a [routerLink]="['']" class="btn btn-secondary">Voltar</a>
+            </article>
+        </section>
+
+    </ng-template>
+
+    <img src="assets/error.png" alt="Deu erro na mostragem do pokemon" width="100%" *ngIf="apiError">
+</main>

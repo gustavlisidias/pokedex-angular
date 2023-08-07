@@ -1,0 +1,93 @@
+:root {
+    --branco: #fff;
+    --cinza: #efefef;
+    --primary-color: #262835;
+    --secondary-color: #ff5473;
+}
+
+:host {
+    width: 100%;
+}
+
+:host .listagem {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1.25rem 0;
+}
+
+:host .listagem .pokemon {
+    position: relative;
+    display: flex;
+    background: var(--branco);
+    width: calc(49% - 2.5rem);
+    height: 7.3125rem;
+    margin-bottom: 0.625rem;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+:host .listagem .pokemon-status h2 {
+    font-size: 1.375rem;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 0.625rem;
+}
+
+:host .listagem .pokemon-status ul {
+    display: flex;
+    flex-direction: column;
+}
+
+:host .listagem .pokemon-status ul li {
+    background: var(--cinza);
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3.125rem;
+    width: 3.75rem;
+    margin-bottom: 0.3125rem;
+}
+
+:host .listagem .pokemon-image {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.625rem;
+    width: 6.875rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    background: url('../../../assets/background-list-pokemons.svg') no-repeat;
+}
+
+:host .listagem .pokemon-image img {
+    width: 3.75rem;
+}
+
+:host .listagem .pokemon-buttons {
+    margin-left: auto;
+}
+
+:host .listagem .pokemon-buttons button {
+    width: 3.75rem;
+    height: 1.25rem;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0.313rem;
+    margin: 0 0.125rem;
+}
+
+:host .listagem .pokemon-loading {
+    color: #fff;
+}
+
+@media (max-width: 400px) {
+    :host .listagem a {
+        width: 100% !important;
+    }
+}
